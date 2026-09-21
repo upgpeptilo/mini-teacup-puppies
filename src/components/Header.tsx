@@ -196,7 +196,7 @@ export default function Header() {
             </div>
           </div>
 
-          <div className="flex h-full items-center justify-center xl:hidden">
+          <div className="flex h-full items-center justify-start xl:hidden">
             <button
               type="button"
               onClick={() => setMenuOpen((v) => !v)}
