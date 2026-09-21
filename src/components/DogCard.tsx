@@ -1,12 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import type { Dog } from '@/types';
 import { getOptimizedImageUrl } from '@/lib/image-utils';
 import { HeartIcon, PawIcon } from './Icons';
 import { getFavourites, toggleFavourite } from '@/lib/localStorage-utils';
+
+const SLIDE_INTERVAL = 4500;
 
 const details = (dog: Dog) => [
   { label: 'Condition', value: dog.status },
@@ -17,12 +19,19 @@ const details = (dog: Dog) => [
 
 export default function DogCard({ dog }: { dog: Dog }) {
   const [fav, setFav] = useState(() => getFavourites().includes(dog.id));
+  const [imgIndex, setImgIndex] = useState(0);
 
   const onFav = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     setFav(toggleFavourite(dog.id).includes(dog.id));
   };
+
+  useEffect(() => {
+    if (dog.images.length < 2) return;
+    const id = setInterval(() => setImgIndex((i) => (i + 1) % dog.images.length), SLIDE_INTERVAL);
+    return () => clearInterval(id);
+  }, [dog.images.length]);
 
   return (
     <motion.article
@@ -31,12 +40,33 @@ export default function DogCard({ dog }: { dog: Dog }) {
       className="card group flex h-full flex-col overflow-hidden hover:shadow-lift"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-sand/30">
-        <img
-          src={getOptimizedImageUrl(dog.images[0], 500, 70)}
-          alt={`${dog.name}, a ${dog.color} ${dog.breed}`}
-          loading="lazy"
-          className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-110"
-        />
+        <AnimatePresence>
+          <motion.img
+            key={imgIndex}
+            src={getOptimizedImageUrl(dog.images[imgIndex], 500, 70)}
+            alt={`${dog.name}, a ${dog.color} ${dog.breed}`}
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-contain transition-transform duration-500 group-hover:scale-110"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: 'easeInOut' }}
+          />
+        </AnimatePresence>
+
+        {dog.images.length > 1 && (
+          <div className="absolute bottom-2 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
+            {dog.images.map((_, i) => (
+              <span
+                key={i}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i === imgIndex ? 'w-4 bg-white' : 'w-1.5 bg-white/60'
+                }`}
+              />
+            ))}
+          </div>
+        )}
+
         <button
           type="button"
           onClick={onFav}
