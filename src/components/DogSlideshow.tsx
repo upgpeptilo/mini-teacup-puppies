@@ -4,35 +4,35 @@ import { useState, useEffect, useCallback } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRightIcon } from './Icons';
-import { pitbullPhotos } from '@/data/pitbullPhotos';
+import { yorkiePhotos, maltipooPhotos, dachshundPhotos } from '@/data/teacupPhotos';
 
 const slides = [
   {
     id: 0,
-    image: pitbullPhotos[3],
-    eyebrow: 'Meet Duke',
+    image: yorkiePhotos[4],
+    eyebrow: 'Meet Daisy',
     heading: 'Meet your new best friend',
-    sub: 'A confident, affectionate Pitbull ready to join your family.',
+    sub: 'A confident, affectionate Teacup Yorkie ready to join your family.',
     location: 'Available nationwide',
-    dogId: 'duke',
+    dogId: 'daisy',
   },
   {
     id: 1,
-    image: pitbullPhotos[4],
-    eyebrow: 'Meet Bella',
-    heading: 'Fill your home with loyalty and love',
-    sub: 'Playful, affectionate and utterly charming — Bella is ready to steal your heart.',
+    image: maltipooPhotos[4],
+    eyebrow: 'Meet Luna',
+    heading: 'Fill your home with love in a tiny package',
+    sub: 'Gentle, cuddly and utterly charming — Luna is ready to steal your heart.',
     location: 'Available nationwide',
-    dogId: 'bella',
+    dogId: 'luna',
   },
   {
     id: 2,
-    image: pitbullPhotos[5],
-    eyebrow: 'Meet Diesel',
-    heading: 'Loyal companions, built strong',
-    sub: 'Home-raised and beautifully socialised, Diesel is ready to come home with you.',
+    image: dachshundPhotos[4],
+    eyebrow: 'Meet Pepper',
+    heading: 'Small dog, big personality',
+    sub: 'Home-raised and beautifully socialised, Pepper is ready to come home with you.',
     location: 'Available nationwide',
-    dogId: 'diesel',
+    dogId: 'pepper',
   },
 ];
 

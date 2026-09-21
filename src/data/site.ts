@@ -6,9 +6,9 @@
  * this is the one file to edit for that.
  */
 export const site = {
-  name: 'Ironline Bullies',
-  tagline: 'Family-Raised Pitbull Puppies',
-  shortPitch: 'Loyal companions, built strong.',
+  name: 'Mini Teacup Puppies 4 Homes',
+  tagline: 'Family-Raised Mini Teacup Puppies',
+  shortPitch: 'Tiny companions, big love.',
   foundedYear: 2015,
   soldCount: '300+',
   city: 'Your City',
@@ -16,21 +16,21 @@ export const site = {
 
   // --- SEO ---
   // Your live domain (no trailing slash). Used for canonical URLs & sitemap.
-  url: 'https://ironlinebullies.com',
+  url: 'https://miniteacuppuppies4homes.com',
   seoDescription:
-    'Health-tested, home-raised Pitbull puppies. Vet-checked, vaccinated and raised with love — reserve your puppy today, with nationwide delivery available.',
+    'Health-tested, home-raised Mini Teacup Puppies — Yorkie, Maltipoo, Poodle, Shih Tzu and Dachshund. Vet-checked, vaccinated and raised with love — US-based with international shipping available. Reserve your puppy today.',
   keywords:
-    'Pitbull puppies, pitbull puppies for sale, Pitbull breeder, XL Pitbull puppies, buy pitbull puppy, reserve a Pitbull puppy',
+    'teacup puppies, mini teacup puppies for sale, teacup Yorkie, teacup Maltipoo, teacup Poodle, teacup Shih Tzu, miniature Dachshund puppies, teacup puppy breeder, international puppy shipping',
 
   // --- Placeholder contact details ---
   // TODO: this is temporarily your own inbox so Resend's sandbox mode can
   // actually deliver test notifications. Switch back to the real business
   // email once you've verified a sending domain in Resend.
   email: 'broomuhams@gmail.com',
-  phone: '(555) 010-1234',
+  phone: '+1 917-323-7641',
   // WhatsApp number in international format, digits only (e.g. 18125551234).
   // Leave blank to fall back to the contact page.
-  whatsapp: '237670666946',
+  whatsapp: '19173237641',
   // Left blank on purpose — no physical address is shown on the site.
   address: '',
   responseTime: 'We aim to reply within 24 hours.',
@@ -56,6 +56,10 @@ export const site = {
       'Please include your order reference in the payment note. Once paid, reply to your confirmation email or message us on WhatsApp with a screenshot and we will confirm your puppy. Puppies are held for 48 hours.' as string,
   },
 } as const;
+
+/** Builds a click-to-chat WhatsApp link for `site.whatsapp`, optionally pre-filled. */
+export const waLink = (message?: string) =>
+  `https://wa.me/${site.whatsapp}${message ? `?text=${encodeURIComponent(message)}` : ''}`;
 
 export const localBusinessSchema = {
   '@context': 'https://schema.org',

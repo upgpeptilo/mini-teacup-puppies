@@ -1,8 +1,8 @@
 {
-  "name": "ironline-bullies",
+  "name": "mini-teacup-puppies-4-homes",
   "private": true,
   "version": "1.0.0",
-  "description": "Ironline Bullies — American Bully puppy breeder website (Next.js + Supabase).",
+  "description": "Mini Teacup Puppies 4 Homes — Mini Teacup Puppies breeder website (Next.js + Supabase).",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

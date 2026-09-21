@@ -5,12 +5,12 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PawIcon, ArrowRightIcon, HeartIcon } from './Icons';
 import { site } from '@/data/site';
-import { pitbullPhotos } from '@/data/pitbullPhotos';
+import { allPhotos } from '@/data/teacupPhotos';
 
 const heroImages = [
-  { src: pitbullPhotos[0], alt: 'A Pitbull puppy resting peacefully' },
-  { src: pitbullPhotos[1], alt: 'A muscular Pitbull gazing into the distance' },
-  { src: pitbullPhotos[2], alt: 'A gentle Pitbull puppy curled up in a cosy home' },
+  { src: allPhotos[0], alt: 'A tiny teacup puppy resting peacefully' },
+  { src: allPhotos[1], alt: 'A fluffy teacup puppy gazing into the distance' },
+  { src: allPhotos[2], alt: 'A gentle teacup puppy curled up in a cosy home' },
 ];
 
 const SLIDE_INTERVAL = 3000;
@@ -40,15 +40,15 @@ export default function Hero() {
             className="mt-4 animate-fade-up text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl"
             style={{ animationDelay: '120ms', animationFillMode: 'backwards' }}
           >
-            Health-tested Pitbull puppies <span className="text-forest">raised with love</span>
+            Health-tested Mini Teacup Puppies <span className="text-forest">raised with love</span>
           </h1>
 
           <p
             className="mt-5 max-w-xl animate-fade-up text-lg leading-relaxed text-muted"
             style={{ animationDelay: '240ms', animationFillMode: 'backwards' }}
           >
-            We raise confident, well-socialised Pitbull puppies — vet-checked, vaccinated and
-            ready to join your family. Reserve yours today, with nationwide delivery available.
+            We raise confident, well-socialised Yorkie, Maltipoo, Poodle, Shih Tzu and Dachshund puppies —
+            vet-checked, vaccinated and ready to join your family. US-based, with international shipping available.
           </p>
 
           <div

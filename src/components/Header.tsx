@@ -6,8 +6,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Logo from './Logo';
-import { HeartIcon, LockIcon } from './Icons';
-import { primaryNavLinks, moreNavLinks, site } from '@/data/site';
+import { HeartIcon, LockIcon, PhoneIcon, WhatsAppIcon } from './Icons';
+import { primaryNavLinks, moreNavLinks, site, waLink } from '@/data/site';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -98,89 +98,114 @@ export default function Header() {
           Skip to content
         </a>
 
-        <div className="container-page flex h-16 items-center justify-between gap-4 md:h-20">
+        {/* Row 1: logo, phone, WhatsApp — always visible, every breakpoint. */}
+        <div className="container-page flex h-11 items-center justify-between gap-4 border-b border-forest-100/60">
           <Link href="/" aria-label={`${site.name} home`} className="shrink-0">
             <Logo />
           </Link>
 
-          <nav className="hidden items-center gap-1 xl:flex" aria-label="Primary">
-            {primaryNavLinks.map((link) => (
-              <Link key={link.href} href={link.href} className={navItemClass(link.href)}>
-                {link.label}
-                {isActive(link.href) && (
-                  <motion.span
-                    layoutId="nav-underline"
-                    className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-ember"
-                  />
-                )}
-              </Link>
-            ))}
-
-            <div ref={moreRef} className="relative">
-              <button
-                type="button"
-                onClick={() => setDesktopMoreOpen((v) => !v)}
-                aria-expanded={desktopMoreOpen}
-                aria-haspopup="menu"
-                className={[
-                  'relative rounded-full px-3 py-2 text-sm font-semibold transition-all duration-200',
-                  'hover:scale-[1.03] hover:text-ember',
-                  isMoreActive ? 'text-ember' : 'text-forest-800',
-                ].join(' ')}
-              >
-                More <span className="ml-0.5 inline-block text-xs align-middle">{desktopMoreOpen ? '▲' : '▼'}</span>
-                {isMoreActive && (
-                  <motion.span
-                    layoutId="nav-underline"
-                    className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-ember"
-                  />
-                )}
-              </button>
-
-              {desktopMoreOpen && (
-                <div role="menu" className="absolute left-0 top-full mt-2 w-64 rounded-2xl bg-white p-2 shadow-lift ring-1 ring-black/5">
-                  {moreNavLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      role="menuitem"
-                      className={`flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold transition hover:bg-forest-50 hover:text-ember ${
-                        isActive(link.href) ? 'text-ember' : 'text-forest-700'
-                      }`}
-                    >
-                      {link.href === '/privacy' && <LockIcon className="h-3.5 w-3.5" />}
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          </nav>
-
-          <div className="flex items-center gap-2">
-            <motion.div
-              className="hidden sm:block"
-              animate={{ scale: [1, 1.04, 1] }}
-              transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+          <div className="flex items-center gap-1 sm:gap-3">
+            <a
+              href={`tel:${site.phone.replace(/\s/g, '')}`}
+              aria-label={`Call ${site.phone}`}
+              className="inline-flex items-center gap-1.5 rounded-full px-2 py-1.5 text-xs font-semibold text-forest-800 transition hover:bg-forest-50 hover:text-ember sm:px-2.5 sm:text-sm"
             >
-              <Link
-                href="/dogs"
-                className="btn-accent inline-flex items-center gap-2 shadow-glow"
-                aria-label="Bring me home"
-              >
-                <HeartIcon className="h-4 w-4" filled /> Bring Me Home
-              </Link>
-            </motion.div>
+              <PhoneIcon className="h-4 w-4 shrink-0" /> {site.phone}
+            </a>
+            <a
+              href={waLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Message us on WhatsApp"
+              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-forest-800 transition hover:bg-forest-50 hover:text-ember"
+            >
+              <WhatsAppIcon className="h-5 w-5" />
+            </a>
+          </div>
+        </div>
 
+        {/* Row 2: nav, centered on desktop with the CTA at the end; a single "Menu" control below xl. */}
+        <div className="container-page h-14">
+          <div className="hidden h-full xl:grid xl:grid-cols-[1fr_auto_1fr] xl:items-center xl:gap-4">
+            <div />
+
+            <nav className="flex items-center justify-center gap-1" aria-label="Primary">
+              {primaryNavLinks.map((link) => (
+                <Link key={link.href} href={link.href} className={navItemClass(link.href)}>
+                  {link.label}
+                  {isActive(link.href) && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-ember"
+                    />
+                  )}
+                </Link>
+              ))}
+
+              <div ref={moreRef} className="relative">
+                <button
+                  type="button"
+                  onClick={() => setDesktopMoreOpen((v) => !v)}
+                  aria-expanded={desktopMoreOpen}
+                  aria-haspopup="menu"
+                  className={[
+                    'relative rounded-full px-3 py-2 text-sm font-semibold transition-all duration-200',
+                    'hover:scale-[1.03] hover:text-ember',
+                    isMoreActive ? 'text-ember' : 'text-forest-800',
+                  ].join(' ')}
+                >
+                  More <span className="ml-0.5 inline-block text-xs align-middle">{desktopMoreOpen ? '▲' : '▼'}</span>
+                  {isMoreActive && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-ember"
+                    />
+                  )}
+                </button>
+
+                {desktopMoreOpen && (
+                  <div role="menu" className="absolute left-0 top-full mt-2 w-64 rounded-2xl bg-white p-2 shadow-lift ring-1 ring-black/5">
+                    {moreNavLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        role="menuitem"
+                        className={`flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold transition hover:bg-forest-50 hover:text-ember ${
+                          isActive(link.href) ? 'text-ember' : 'text-forest-700'
+                        }`}
+                      >
+                        {link.href === '/privacy' && <LockIcon className="h-3.5 w-3.5" />}
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </nav>
+
+            <div className="flex justify-end">
+              <motion.div animate={{ scale: [1, 1.04, 1] }} transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}>
+                <Link
+                  href="/dogs"
+                  className="btn-accent inline-flex items-center gap-2 shadow-glow"
+                  aria-label="Bring me home"
+                >
+                  <HeartIcon className="h-4 w-4" filled /> Bring Me Home
+                </Link>
+              </motion.div>
+            </div>
+          </div>
+
+          <div className="flex h-full items-center justify-center xl:hidden">
             <button
               type="button"
               onClick={() => setMenuOpen((v) => !v)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full text-forest-800 transition hover:bg-forest-50 xl:hidden"
+              className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-forest-800 transition hover:bg-forest-50"
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={menuOpen}
               aria-controls="mobile-nav"
             >
-              <Burger open={menuOpen} />
+              <Burger open={menuOpen} /> Menu
             </button>
           </div>
         </div>
@@ -317,7 +342,27 @@ export default function Header() {
                 )}
               </nav>
 
-              <div className="px-5 py-5" style={{ borderTop: '1px solid #e6dcc9', backgroundColor: '#f4efe6' }}>
+              <div className="flex flex-col gap-3 px-5 py-5" style={{ borderTop: '1px solid #e6dcc9', backgroundColor: '#f4efe6' }}>
+                <div className="flex gap-3">
+                  <a
+                    href={`tel:${site.phone.replace(/\s/g, '')}`}
+                    tabIndex={menuOpen ? 0 : -1}
+                    className="flex flex-1 items-center justify-center gap-2 rounded-full py-3 text-sm font-bold"
+                    style={{ color: '#753347', backgroundColor: '#eab8c8' }}
+                  >
+                    <PhoneIcon className="h-4 w-4" /> Call
+                  </a>
+                  <a
+                    href={waLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    tabIndex={menuOpen ? 0 : -1}
+                    className="flex flex-1 items-center justify-center gap-2 rounded-full py-3 text-sm font-bold"
+                    style={{ color: '#753347', backgroundColor: '#eab8c8' }}
+                  >
+                    <WhatsAppIcon className="h-4 w-4" /> WhatsApp
+                  </a>
+                </div>
                 <Link
                   href="/dogs"
                   onClick={() => setMenuOpen(false)}

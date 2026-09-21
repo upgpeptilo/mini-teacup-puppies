@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -9,6 +10,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
         {children}
       </main>
       <Footer />
+      <Script src="//code.jivosite.com/widget/CDG7yCbXat" strategy="afterInteractive" />
     </div>
   );
 }

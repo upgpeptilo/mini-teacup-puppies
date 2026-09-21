@@ -125,7 +125,7 @@ export async function POST(request: Request) {
 
     const resend = new Resend(apiKey);
     const { error } = await resend.emails.send({
-      from: 'Ironline Bullies <onboarding@resend.dev>',
+      from: 'Mini Teacup Puppies 4 Homes <onboarding@resend.dev>',
       to,
       replyTo,
       subject,

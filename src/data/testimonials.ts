@@ -10,27 +10,27 @@ export const testimonials: Testimonial[] = [
   {
     id: 'seed-1',
     customerName: 'The Ramirez Family',
-    dogName: 'Sadie',
+    dogName: 'Daisy',
     quote:
-      "Sadie has been the perfect addition to our family. She's gentle with our kids and clearly health-tested — you can tell this breeder does it right.",
+      "Daisy has been the perfect addition to our family. She's gentle with our kids and clearly health-tested — you can tell this breeder does it right.",
     rating: 5,
     photo: img(40),
   },
   {
     id: 'seed-2',
     customerName: 'Marcus D.',
-    dogName: 'Diesel',
+    dogName: 'Winston',
     quote:
-      'Communication was great from reservation to pickup, and Diesel arrived happy, healthy and exactly as described.',
+      'Communication was great from reservation to pickup, and Winston arrived happy, healthy and exactly as described.',
     rating: 5,
     photo: img(41),
   },
   {
     id: 'seed-3',
     customerName: 'Priya S.',
-    dogName: 'Nova',
+    dogName: 'Luna',
     quote:
-      "Nova is smart, well-socialized and clearly raised with a lot of love. Couldn't ask for a better puppy experience.",
+      "Luna is smart, well-socialized and clearly raised with a lot of love. Couldn't ask for a better puppy experience.",
     rating: 5,
     photo: img(42),
   },
@@ -46,9 +46,9 @@ export const testimonials: Testimonial[] = [
   {
     id: 'seed-5',
     customerName: 'Jordan K.',
-    dogName: 'Zeus',
+    dogName: 'Teddy',
     quote:
-      'Zeus is everything they described — calm, patient with our kids, and clearly well cared for before we ever met him. Ground transport went smoothly too.',
+      'Teddy is everything they described — calm, patient with our kids, and clearly well cared for before we ever met him. Ground transport went smoothly too.',
     rating: 5,
     photo: img(44),
   },
@@ -64,9 +64,9 @@ export const testimonials: Testimonial[] = [
   {
     id: 'seed-7',
     customerName: 'Trevor B.',
-    dogName: 'Bruno',
+    dogName: 'Max',
     quote:
-      'Bruno is goofy and affectionate with the whole family, and the health guarantee paperwork gave us real peace of mind.',
+      'Max is goofy and affectionate with the whole family, and the health guarantee paperwork gave us real peace of mind.',
     rating: 5,
     photo: img(46),
   },

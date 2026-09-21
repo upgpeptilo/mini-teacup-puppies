@@ -1,6 +1,6 @@
-# Ironline Bullies
+# Mini Teacup Puppies 4 Homes
 
-An American Bully puppy breeder website — Next.js (App Router) + TypeScript + Tailwind CSS + Supabase, deployed on Vercel.
+A Mini Teacup Puppies breeder website — Next.js (App Router) + TypeScript + Tailwind CSS + Supabase, deployed on Vercel.
 
 ## Tech stack
 

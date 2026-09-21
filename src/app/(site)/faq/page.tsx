@@ -1,15 +1,23 @@
 import type { Metadata } from 'next';
 import PageHero from '@/components/PageHero';
-import { site } from '@/data/site';
+import { site, waLink } from '@/data/site';
 
 export const metadata: Metadata = { title: "FAQ's" };
 
-/** Site-wide FAQs. Per-dog FAQs live separately in src/data/dogFaqs.ts. */
-const faqs: Array<{ question: string; answer: string }> = [
+/** Site-wide FAQs. */
+const faqs: Array<{ question: string; answer: React.ReactNode }> = [
   {
     question: 'How do I reserve a puppy?',
-    answer:
-      'Reach out through our contact form or WhatsApp with the puppy you\'re interested in. Once we confirm availability, a deposit secures your puppy — the deposit is deducted from the final balance.',
+    answer: (
+      <>
+        Reach out through our contact form or{' '}
+        <a href={waLink()} target="_blank" rel="noopener noreferrer" className="font-semibold text-ember underline">
+          WhatsApp
+        </a>{' '}
+        with the puppy you&apos;re interested in. Once we confirm availability, a deposit secures your puppy — the
+        deposit is deducted from the final balance.
+      </>
+    ),
   },
   {
     question: 'How do I pay, and how long is a puppy held for me?',
@@ -23,7 +31,7 @@ const faqs: Array<{ question: string; answer: string }> = [
   {
     question: 'Do you deliver, and what are my options?',
     answer:
-      'Yes — we offer ground transport nationwide, a flight nanny who escorts your puppy on a commercial flight, and local or airport pickup. See our Puppy Delivery page for details.',
+      "Yes — we're based in the US and ship internationally. Options include ground transport nationwide, a flight nanny who escorts your puppy on a commercial flight, and local or airport pickup. See our Puppy Delivery page for details.",
   },
   {
     question: 'What comes with my puppy?',

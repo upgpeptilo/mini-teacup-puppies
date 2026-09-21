@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import PageHero from '@/components/PageHero';
 import ContactForm from '@/components/ContactForm';
-import { MailIcon, PhoneIcon, PinIcon, FacebookIcon, InstagramIcon, TikTokIcon } from '@/components/Icons';
-import { site } from '@/data/site';
-import { pitbullPhotos } from '@/data/pitbullPhotos';
+import { MailIcon, PhoneIcon, PinIcon, FacebookIcon, InstagramIcon, TikTokIcon, WhatsAppIcon } from '@/components/Icons';
+import { site, waLink } from '@/data/site';
+import { allPhotos } from '@/data/teacupPhotos';
 import { fetchPublicDogsServer } from '@/lib/db.server';
 
-const heroImg = pitbullPhotos[3];
+const heroImg = allPhotos[3];
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -46,6 +46,9 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
           <div className="card mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 p-6 text-sm">
             <a href={`tel:${site.phone.replace(/\s/g, '')}`} className="link-quiet flex items-center gap-2 font-semibold text-forest-800">
               <PhoneIcon className="h-5 w-5 text-forest-600" /> {site.phone}
+            </a>
+            <a href={waLink()} target="_blank" rel="noopener noreferrer" className="link-quiet flex items-center gap-2 font-semibold text-forest-800">
+              <WhatsAppIcon className="h-5 w-5 text-forest-600" /> WhatsApp us
             </a>
             <a href={`mailto:${site.email}`} className="link-quiet flex items-center gap-2 font-semibold text-forest-800">
               <MailIcon className="h-5 w-5 text-forest-600" /> {site.email}

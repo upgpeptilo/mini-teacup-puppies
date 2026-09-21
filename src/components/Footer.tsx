@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import Logo from './Logo';
 import NewsletterSignup from './NewsletterSignup';
-import { FacebookIcon, InstagramIcon, TikTokIcon, MailIcon, PhoneIcon, PinIcon, ShieldIcon, StarIcon, LockIcon } from './Icons';
-import { site } from '@/data/site';
+import { FacebookIcon, InstagramIcon, TikTokIcon, MailIcon, PhoneIcon, PinIcon, ShieldIcon, StarIcon, LockIcon, WhatsAppIcon } from './Icons';
+import { site, waLink } from '@/data/site';
 
 const quickLinks = [
   { label: 'Home', href: '/' },
@@ -22,8 +22,8 @@ export default function Footer() {
         <div>
           <Logo variant="light" />
           <p className="mt-4 max-w-xs text-sm text-cream/70">
-            {site.name} — {site.tagline}. Health-tested, home-raised puppies, raised with love and
-            delivered across the US.
+            {site.name} — {site.tagline}. Health-tested, home-raised puppies, raised with love.
+            US-based, with international shipping available.
           </p>
           <div className="mt-5 flex gap-3">
             <SocialLink href={site.social.facebook} label="Facebook">
@@ -60,6 +60,12 @@ export default function Footer() {
               <PhoneIcon className="h-4 w-4 text-ember-200" />
               <a href={`tel:${site.phone.replace(/\s/g, '')}`} className="hover:text-ember-200">
                 {site.phone}
+              </a>
+            </li>
+            <li className="flex items-center gap-2">
+              <WhatsAppIcon className="h-4 w-4 text-ember-200" />
+              <a href={waLink()} target="_blank" rel="noopener noreferrer" className="hover:text-ember-200">
+                WhatsApp us
               </a>
             </li>
             <li className="flex items-center gap-2">
@@ -109,8 +115,9 @@ export default function Footer() {
           </div>
         </div>
         <p className="container-page pb-6 text-center text-[11px] leading-relaxed text-cream/40">
-          {site.name} is a family-run Pitbull breeder. Puppies are vet-checked, vaccinated
-          and microchipped before they travel, and every puppy comes with a written health guarantee.
+          {site.name} is a family-run breeder of Mini Teacup Puppies, based in the US with international
+          shipping available. Puppies are vet-checked, vaccinated and microchipped before they travel, and
+          every puppy comes with a written health guarantee.
         </p>
       </div>
     </footer>

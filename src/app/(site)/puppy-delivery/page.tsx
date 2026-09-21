@@ -17,14 +17,14 @@ const sections: Array<{ h: string; p: string[] }> = [
   {
     h: 'Delivery areas & cost',
     p: [
-      'We deliver across the US. Cost depends on your location and the method you choose, so contact us for a quote once you\'ve reserved a puppy.',
+      "We're based in the US and ship internationally. Cost depends on your location and the method you choose, so contact us for a quote once you've reserved a puppy.",
     ],
   },
   {
     h: 'Preparing for arrival',
     p: [
       'Every puppy is vet-checked, vaccinated appropriately for their age and dewormed before they travel — we never send a puppy that isn\'t ready or healthy enough for the trip.',
-      `You'll receive vet exam, vaccination and deworming records along with your puppy. Questions before or after delivery? Email us at ${site.email} or call ${site.phone}.`,
+      `You'll receive vet exam, vaccination and deworming records along with your puppy. Questions before or after delivery? Email us at ${site.email} or call, text, or WhatsApp us at ${site.phone}.`,
     ],
   },
 ];
