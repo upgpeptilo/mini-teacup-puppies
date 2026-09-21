@@ -11,17 +11,9 @@ export default function DogsBrowser({ dogs }: { dogs: Dog[] }) {
   const [filters, setFilters] = useState<DogFilters>(defaultFilters);
   const [page, setPage] = useState(1);
 
-  const regions = useMemo(() => Array.from(new Set(dogs.map((d) => d.region).filter(Boolean))).sort(), [dogs]);
-
   const filtered = useMemo(
     () =>
-      dogs.filter(
-        (d) =>
-          (filters.age === 'all' || d.ageGroup === filters.age) &&
-          (filters.gender === 'all' || d.gender === filters.gender) &&
-          (filters.region === 'all' || d.region === filters.region) &&
-          (filters.status === 'all' || d.status === filters.status),
-      ),
+      dogs.filter((d) => (filters.age === 'all' || d.ageGroup === filters.age) && (filters.gender === 'all' || d.gender === filters.gender)),
     [dogs, filters],
   );
 
@@ -37,7 +29,7 @@ export default function DogsBrowser({ dogs }: { dogs: Dog[] }) {
   return (
     <div className="grid gap-8 lg:grid-cols-[300px_1fr]">
       <aside>
-        <FilterSidebar regions={regions} onApply={applyFilters} resultCount={filtered.length} />
+        <FilterSidebar onApply={applyFilters} resultCount={filtered.length} />
       </aside>
 
       <div>

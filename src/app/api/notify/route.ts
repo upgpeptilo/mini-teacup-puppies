@@ -99,7 +99,7 @@ function buildEmail(payload: NotifyPayload): { subject: string; text: string; ht
  * NOTE: without a verified sending domain in Resend, mail can only be sent
  * from `onboarding@resend.dev` and only *to* the Resend account owner's own
  * email address. Verify a domain in the Resend dashboard once you're ready
- * to deliver to `site.email` for real.
+ * to deliver to `site.notifyEmail` for real.
  */
 export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY;
@@ -108,7 +108,7 @@ export async function POST(request: Request) {
   try {
     const payload = (await request.json()) as NotifyPayload;
     const { subject, text, html } = buildEmail(payload);
-    const to = [site.email];
+    const to = [site.notifyEmail];
 
     // Admin-bound notifications reply straight back to the customer who
     // triggered them, so hitting Reply in the inbox reaches the customer

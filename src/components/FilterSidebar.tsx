@@ -6,19 +6,14 @@ import type { AgeGroup, DogGender } from '@/types';
 export interface DogFilters {
   age: AgeGroup | 'all';
   gender: DogGender | 'all';
-  region: string;
-  status: 'all' | 'Available' | 'Pending' | 'Sold';
 }
 
 export const defaultFilters: DogFilters = {
   age: 'all',
   gender: 'all',
-  region: 'all',
-  status: 'all',
 };
 
 interface Props {
-  regions: string[];
   onApply: (filters: DogFilters) => void;
   resultCount: number;
 }
@@ -26,7 +21,7 @@ interface Props {
 const ageGroups: AgeGroup[] = ['Puppy', 'Young', 'Adult', 'Senior'];
 
 /** Filter controls. Sticky sidebar on desktop, collapsible panel on mobile. */
-export default function FilterSidebar({ regions, onApply, resultCount }: Props) {
+export default function FilterSidebar({ onApply, resultCount }: Props) {
   const [draft, setDraft] = useState<DogFilters>(defaultFilters);
   const [open, setOpen] = useState(false);
 
@@ -77,32 +72,6 @@ export default function FilterSidebar({ regions, onApply, resultCount }: Props) 
               <option value="all">Any gender</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
-            </select>
-          </div>
-
-          <div>
-            <label className="label" htmlFor="f-region">
-              Location
-            </label>
-            <select id="f-region" className="input" value={draft.region} onChange={(e) => set('region', e.target.value)}>
-              <option value="all">Anywhere in the US</option>
-              {regions.map((r) => (
-                <option key={r} value={r}>
-                  {r}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <label className="label" htmlFor="f-status">
-              Status
-            </label>
-            <select id="f-status" className="input" value={draft.status} onChange={(e) => set('status', e.target.value as DogFilters['status'])}>
-              <option value="all">All statuses</option>
-              <option value="Available">Available</option>
-              <option value="Pending">Pending</option>
-              <option value="Sold">Sold</option>
             </select>
           </div>
 

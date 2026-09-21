@@ -22,11 +22,13 @@ export const site = {
   keywords:
     'teacup puppies, mini teacup puppies for sale, teacup Yorkie, teacup Maltipoo, teacup Poodle, teacup Shih Tzu, miniature Dachshund puppies, teacup puppy breeder, international puppy shipping',
 
-  // --- Placeholder contact details ---
-  // TODO: this is temporarily your own inbox so Resend's sandbox mode can
-  // actually deliver test notifications. Switch back to the real business
-  // email once you've verified a sending domain in Resend.
-  email: 'broomuhams@gmail.com',
+  // --- Contact details ---
+  // Public-facing email, shown across the site (footer, contact page, mailto links).
+  email: 'info@miniteacuppuppies4homes.com',
+  // Inbox that admin notification emails (contact/application/order/newsletter) are sent to.
+  // NOTE: without a verified sending domain in Resend, mail can only be delivered to the
+  // Resend account's own registered address — see src/app/api/notify/route.ts.
+  notifyEmail: 'miniteacuppuppies4homes@gmail.com',
   phone: '+1 917-323-7641',
   // WhatsApp number in international format, digits only (e.g. 18125551234).
   // Leave blank to fall back to the contact page.

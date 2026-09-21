@@ -4,9 +4,11 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import FormField from './FormField';
 import Modal from './Modal';
+import { WhatsAppIcon, MailIcon } from './Icons';
 import { appendSubmission } from '@/lib/localStorage-utils';
 import { notify } from '@/lib/notify';
 import { submitContact } from '@/lib/db';
+import { waLink } from '@/data/site';
 
 interface ContactData {
   name: string;
@@ -43,6 +45,7 @@ export default function ContactForm({ dogs, initialDogId }: Props) {
   const [errors, setErrors] = useState<Partial<Record<keyof ContactData, string>>>({});
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [channel, setChannel] = useState<'message' | 'whatsapp'>('message');
 
   const update = (key: keyof ContactData, value: string) => {
     setData((d) => ({ ...d, [key]: value }));
@@ -71,6 +74,17 @@ export default function ContactForm({ dogs, initialDogId }: Props) {
     if (!validate()) return;
     setSubmitting(true);
     const subject = data.dogName ? `Puppy inquiry – ${data.dogName}` : 'General inquiry';
+
+    if (channel === 'whatsapp') {
+      const waMessage = `Hi, I'm ${data.name}. ${data.dogName ? `I'm interested in ${data.dogName}. ` : ''}${data.message}\nEmail: ${data.email}${data.phone ? `\nPhone: ${data.phone}` : ''}`;
+      await submitContact({ name: data.name, email: data.email, phone: data.phone, subject, message: data.message }).catch(() => {});
+      appendSubmission('ilb:contact', data);
+      window.open(waLink(waMessage), '_blank', 'noopener,noreferrer');
+      setSubmitting(false);
+      setData(empty);
+      return;
+    }
+
     await Promise.all([
       notify({ type: 'contact', name: data.name, email: data.email, phone: data.phone, subject, dogName: data.dogName || 'Not specified', address: data.address || 'Not provided', message: data.message }),
       submitContact({ name: data.name, email: data.email, phone: data.phone, subject, message: data.message }).catch(() => {}),
@@ -86,6 +100,32 @@ export default function ContactForm({ dogs, initialDogId }: Props) {
   return (
     <>
       <form onSubmit={onSubmit} noValidate className="card p-6 sm:p-8">
+        <fieldset className="mb-5">
+          <legend className="label mb-2">How should we reach you back?</legend>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={() => setChannel('message')}
+              aria-pressed={channel === 'message'}
+              className={`inline-flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold transition ${
+                channel === 'message' ? 'bg-forest-700 text-white' : 'bg-forest-50 text-forest-700 hover:bg-forest-100'
+              }`}
+            >
+              <MailIcon className="h-4 w-4" /> Message us
+            </button>
+            <button
+              type="button"
+              onClick={() => setChannel('whatsapp')}
+              aria-pressed={channel === 'whatsapp'}
+              className={`inline-flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold transition ${
+                channel === 'whatsapp' ? 'bg-forest-700 text-white' : 'bg-forest-50 text-forest-700 hover:bg-forest-100'
+              }`}
+            >
+              <WhatsAppIcon className="h-4 w-4" /> WhatsApp
+            </button>
+          </div>
+        </fieldset>
+
         <div className="grid gap-5 sm:grid-cols-2">
           <FormField label="Name" htmlFor="c-name" required error={errors.name}>
             <input id="c-name" className={inputCls('name')} value={data.name} onChange={(e) => update('name', e.target.value)} autoComplete="name" />
@@ -132,6 +172,8 @@ export default function ContactForm({ dogs, initialDogId }: Props) {
               <span className="h-5 w-5 animate-spin rounded-full border-2 border-white/40 border-t-white" />
               Sending…
             </>
+          ) : channel === 'whatsapp' ? (
+            'Continue on WhatsApp'
           ) : (
             'Send Message'
           )}
