@@ -1,15 +1,18 @@
 'use client';
 
 import { useState } from 'react';
-import type { AgeGroup, DogGender } from '@/types';
+import type { DogGender } from '@/types';
+
+export const breeds = ['Yorkie', 'Maltipoo', 'Poodle', 'Shih Tzu', 'Dachshund'] as const;
+export type BreedFilter = (typeof breeds)[number];
 
 export interface DogFilters {
-  age: AgeGroup | 'all';
+  breed: BreedFilter | 'all';
   gender: DogGender | 'all';
 }
 
 export const defaultFilters: DogFilters = {
-  age: 'all',
+  breed: 'all',
   gender: 'all',
 };
 
@@ -17,8 +20,6 @@ interface Props {
   onApply: (filters: DogFilters) => void;
   resultCount: number;
 }
-
-const ageGroups: AgeGroup[] = ['Puppy', 'Young', 'Adult', 'Senior'];
 
 /** Filter controls. Sticky sidebar on desktop, collapsible panel on mobile. */
 export default function FilterSidebar({ onApply, resultCount }: Props) {
@@ -51,14 +52,14 @@ export default function FilterSidebar({ onApply, resultCount }: Props) {
 
         <div className="mt-5 space-y-5">
           <div>
-            <label className="label" htmlFor="f-age">
-              Age
+            <label className="label" htmlFor="f-breed">
+              Breed
             </label>
-            <select id="f-age" className="input" value={draft.age} onChange={(e) => set('age', e.target.value as DogFilters['age'])}>
-              <option value="all">Any age</option>
-              {ageGroups.map((a) => (
-                <option key={a} value={a}>
-                  {a}
+            <select id="f-breed" className="input" value={draft.breed} onChange={(e) => set('breed', e.target.value as DogFilters['breed'])}>
+              <option value="all">Any breed</option>
+              {breeds.map((b) => (
+                <option key={b} value={b}>
+                  {b}
                 </option>
               ))}
             </select>

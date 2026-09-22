@@ -13,7 +13,11 @@ export default function DogsBrowser({ dogs }: { dogs: Dog[] }) {
 
   const filtered = useMemo(
     () =>
-      dogs.filter((d) => (filters.age === 'all' || d.ageGroup === filters.age) && (filters.gender === 'all' || d.gender === filters.gender)),
+      dogs.filter(
+        (d) =>
+          (filters.breed === 'all' || d.breed.toLowerCase().includes(filters.breed.toLowerCase())) &&
+          (filters.gender === 'all' || d.gender === filters.gender),
+      ),
     [dogs, filters],
   );
 
