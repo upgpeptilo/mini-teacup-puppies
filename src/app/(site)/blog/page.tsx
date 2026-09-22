@@ -39,7 +39,7 @@ export default async function BlogPage() {
 
       <section className="container-page py-14 md:py-20">
         {posts.length === 0 ? (
-          <p className="py-16 text-center text-muted">No articles yet — check back soon.</p>
+          <p className="py-16 text-center text-muted">No articles yet. Check back soon.</p>
         ) : (
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
             {posts.map((post) => (

@@ -115,7 +115,7 @@ export default function TestimonialsAdminPage() {
             <div key={row.id} className="card flex items-start justify-between gap-4 p-5">
               <div className="min-w-0">
                 <p className="font-bold text-forest-800">
-                  {row.customer_name} {row.dog_name && `— owner of ${row.dog_name}`}
+                  {row.customer_name} {row.dog_name && `(owner of ${row.dog_name})`}
                 </p>
                 <div className="mt-1 flex gap-0.5 text-ember">
                   {Array.from({ length: row.rating }).map((_, i) => (

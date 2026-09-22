@@ -7,7 +7,7 @@
  */
 export const site = {
   name: 'Mini Teacup Puppies 4 Homes',
-  tagline: 'Family-Raised Mini Teacup Puppies',
+  tagline: 'Family Raised Mini Teacup Puppies',
   shortPitch: 'Tiny companions, big love.',
   foundedYear: 2015,
   soldCount: '300+',
@@ -18,7 +18,7 @@ export const site = {
   // Your live domain (no trailing slash). Used for canonical URLs & sitemap.
   url: 'https://miniteacuppuppies4homes.com',
   seoDescription:
-    'Health-tested, home-raised Mini Teacup Puppies — Yorkie, Maltipoo, Poodle, Shih Tzu and Dachshund. Vet-checked, vaccinated and raised with love — US-based with international shipping available. Reserve your puppy today.',
+    'Healthy, home raised Mini Teacup Puppies. Yorkie, Maltipoo, Poodle, Shih Tzu and Dachshund. Checked by a vet, vaccinated, and raised with love. We are based in the US and we ship all over the world. Reserve your puppy today.',
   keywords:
     'teacup puppies, mini teacup puppies for sale, teacup Yorkie, teacup Maltipoo, teacup Poodle, teacup Shih Tzu, miniature Dachshund puppies, teacup puppy breeder, international puppy shipping',
 
@@ -29,7 +29,7 @@ export const site = {
   // NOTE: without a verified sending domain in Resend, mail can only be delivered to the
   // Resend account's own registered address — see src/app/api/notify/route.ts.
   notifyEmail: 'miniteacuppuppies4homes@gmail.com',
-  phone: '+1 917-323-7641',
+  phone: '+1 917 323 7641',
   // WhatsApp number in international format, digits only (e.g. 18125551234).
   // Leave blank to fall back to the contact page.
   whatsapp: '19173237641',

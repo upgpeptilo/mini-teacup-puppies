@@ -27,15 +27,15 @@ const sections: Array<{ h: string; p: string[] }> = [
     h: 'Prices, deposits and payment',
     p: [
       "Prices are shown in US dollars on each puppy's page. Deposits are deducted from the final balance.",
-      'Deposits secure a specific puppy and are non-refundable if you change your mind, except as set out under "If something goes wrong" below.',
+      'Deposits secure a specific puppy and are not refundable if you change your mind, except as set out under "If something goes wrong" below.',
       'The balance is due before the puppy travels. We will confirm accepted payment methods when you reserve.',
     ],
   },
   {
     h: 'Health guarantee',
     p: [
-      'Every puppy leaves us vet-checked, vaccinated appropriately for its age, dewormed and microchipped, with its records supplied.',
-      'We provide a written health guarantee against congenital defects with each puppy. The guarantee document issued with your puppy sets out its exact scope and duration and takes precedence over this summary.',
+      'Every puppy leaves us checked by a vet, vaccinated for its age, dewormed and microchipped, with its records supplied.',
+      'We provide a written health guarantee against defects present from birth with each puppy. The guarantee document issued with your puppy sets out its exact scope and duration and takes priority over this summary.',
       'We ask that you have your puppy examined by your own vet within 72 hours of arrival so that any concern is identified straight away.',
     ],
   },
@@ -50,13 +50,13 @@ const sections: Array<{ h: string; p: string[] }> = [
     h: 'Your responsibilities as an owner',
     p: [
       'By buying from us you agree to provide appropriate food, shelter, training and veterinary care for the life of the dog.',
-      'If you are ever unable to keep your dog, we ask that you contact us first — we would rather take a dog back than see it rehomed through a shelter.',
+      'If you are ever unable to keep your dog, we ask that you contact us first. We would rather take a dog back than see it rehomed through a shelter.',
     ],
   },
   {
     h: 'If something goes wrong',
     p: [
-      'If we are unable to supply the puppy you reserved — for example due to illness or a change in the litter — you may choose another available puppy, wait for the next litter, or receive a full refund of your deposit.',
+      'If we are unable to supply the puppy you reserved, for example due to illness or a change in the litter, you may choose another available puppy, wait for the next litter, or receive a full refund of your deposit.',
       'Nothing in these terms limits your rights under applicable consumer law.',
     ],
   },

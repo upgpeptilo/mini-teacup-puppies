@@ -8,7 +8,7 @@ const heroImg = allPhotos[4];
 
 export const metadata: Metadata = {
   title: 'Reserve a Puppy',
-  description: 'Start your reservation for a Mini Teacup Puppy — pick the puppy you love and tell us about your home in a few short steps.',
+  description: 'Start your reservation for a Mini Teacup Puppy. Pick the puppy you love and tell us about your home in a few short steps.',
 };
 
 export default async function ReservePage() {
@@ -19,7 +19,7 @@ export default async function ReservePage() {
     <>
       <PageHero
         title="Reserve a Puppy"
-        subtitle="Pick the puppy you're interested in and tell us a little about your home — we'll be in touch within 24 hours."
+        subtitle="Pick the puppy you're interested in and tell us a little about your home. We'll be in touch within 24 hours."
         image={heroImg}
       />
       <section className="container-page py-12 md:py-16">
@@ -28,7 +28,7 @@ export default async function ReservePage() {
             <PuppyApplicationForm dogs={reservable} />
           ) : (
             <p className="card p-8 text-center text-muted">
-              We don&apos;t have any puppies available to reserve right now — check back soon, or browse our full litter list.
+              We don&apos;t have any puppies available to reserve right now. Check back soon, or browse our full litter list.
             </p>
           )}
         </div>

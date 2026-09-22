@@ -63,7 +63,7 @@ export default function DashboardPage() {
           <div key={c.label} className="card flex items-center gap-4 p-5">
             <span className={`flex h-12 w-12 items-center justify-center rounded-2xl ${c.tint}`}>{c.icon}</span>
             <div>
-              <p className="text-2xl font-extrabold text-forest-800">{loading ? '—' : (c.value ?? 0)}</p>
+              <p className="text-2xl font-extrabold text-forest-800">{loading ? '...' : (c.value ?? 0)}</p>
               <p className="text-sm text-muted">{c.label}</p>
             </div>
           </div>

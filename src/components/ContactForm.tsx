@@ -77,7 +77,7 @@ export default function ContactForm({ dogs, initialDogId }: Props) {
   const sendViaWhatsApp = async () => {
     setChoosingChannel(false);
     setSubmitting(true);
-    const subject = data.dogName ? `Puppy inquiry – ${data.dogName}` : 'General inquiry';
+    const subject = data.dogName ? `Puppy inquiry: ${data.dogName}` : 'General inquiry';
     const waMessage = `Hi, I'm ${data.name}. ${data.dogName ? `I'm interested in ${data.dogName}. ` : ''}${data.message.trim()}\nEmail: ${data.email}${data.phone ? `\nPhone: ${data.phone}` : ''}`.replace(/\s+\n/, '\n');
     await submitContact({ name: data.name, email: data.email, phone: data.phone, subject, message: data.message }).catch(() => {});
     appendSubmission('ilb:contact', data);
@@ -89,7 +89,7 @@ export default function ContactForm({ dogs, initialDogId }: Props) {
   const sendViaMessage = async () => {
     setChoosingChannel(false);
     setSubmitting(true);
-    const subject = data.dogName ? `Puppy inquiry – ${data.dogName}` : 'General inquiry';
+    const subject = data.dogName ? `Puppy inquiry: ${data.dogName}` : 'General inquiry';
     await Promise.all([
       notify({ type: 'contact', name: data.name, email: data.email, phone: data.phone, subject, dogName: data.dogName || 'Not specified', address: data.address || 'Not provided', message: data.message }),
       submitContact({ name: data.name, email: data.email, phone: data.phone, subject, message: data.message }).catch(() => {}),

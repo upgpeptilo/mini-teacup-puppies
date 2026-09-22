@@ -49,7 +49,7 @@ const statuses: DogStatus[] = ['Available', 'Pending', 'Sold'];
 const boolFields: Array<[keyof DogInput, string]> = [
   ['neutered', 'Neutered/Spayed'],
   ['vaccinated', 'Vaccinated'],
-  ['vetChecked', 'Vet-checked'],
+  ['vetChecked', 'Checked by a vet'],
   ['microchipped', 'Microchipped'],
   ['goodWithChildren', 'Good with children'],
   ['goodWithDogs', 'Good with other dogs'],
@@ -67,7 +67,7 @@ function readError(e: unknown): string {
   if (e && typeof e === 'object') {
     const o = e as { message?: unknown; details?: unknown; hint?: unknown; code?: unknown };
     const parts = [o.message, o.details, o.hint].filter((p): p is string => typeof p === 'string' && p.trim().length > 0);
-    const text = parts.join(' — ');
+    const text = parts.join('. ');
     if (text) return o.code ? `${text} (code ${String(o.code)})` : text;
   }
   return 'Save failed. Please try again.';
@@ -234,10 +234,10 @@ export default function DogForm({ rowId }: { rowId?: string }) {
             <Field label="Name" required>
               <input className="input" value={form.name} onChange={(e) => onName(e.target.value)} />
             </Field>
-            <Field label="Breed" hint="e.g. Yorkie — Teacup">
+            <Field label="Breed" hint="e.g. Yorkie">
               <input className="input" value={form.breed} onChange={(e) => set('breed', e.target.value)} />
             </Field>
-            <Field label="Price — Full Payment ($)" required>
+            <Field label="Price, full payment ($)" required>
               <input type="number" min={0} className="input" value={form.price} onChange={(e) => set('price', Number(e.target.value) || 0)} />
             </Field>
             <Field label="Status">
@@ -266,10 +266,10 @@ export default function DogForm({ rowId }: { rowId?: string }) {
             <section className="card space-y-4 p-6">
               <h2 className="text-lg font-extrabold text-forest-800">More basics</h2>
               <div className="grid gap-4 sm:grid-cols-2">
-                <Field label="Registry" hint="e.g. ABKC, UKC — leave blank if none">
+                <Field label="Registry" hint="e.g. ABKC, UKC. Leave blank if none">
                   <input className="input" value={form.registry} onChange={(e) => set('registry', e.target.value)} />
                 </Field>
-                <Field label="Weight" hint='e.g. "45 lbs (est. adult)"'>
+                <Field label="Weight" hint='e.g. "45 lbs, adult size"'>
                   <input className="input" value={form.weightLabel} onChange={(e) => set('weightLabel', e.target.value)} />
                 </Field>
                 <Field label="Age group">
@@ -294,7 +294,7 @@ export default function DogForm({ rowId }: { rowId?: string }) {
 
             <div className="pt-2">
               <h2 className="text-sm font-bold uppercase tracking-wider text-muted">Additional details</h2>
-              <p className="text-xs text-muted">Everything below is optional extra info — not shown on the puppy card.</p>
+              <p className="text-xs text-muted">Everything below is optional extra info, not shown on the puppy card.</p>
             </div>
 
             {/* Pricing add-ons */}
@@ -305,10 +305,10 @@ export default function DogForm({ rowId }: { rowId?: string }) {
                 <Field label="Reservation deposit ($)" hint="default $300">
                   <input type="number" min={0} className="input" value={form.reservePrice} onChange={(e) => set('reservePrice', Number(e.target.value) || 0)} />
                 </Field>
-                <Field label="Add breeding rights — price ($)" hint="default = price + $800">
+                <Field label="Add breeding rights, price ($)" hint="default is price plus $800">
                   <input type="number" min={0} className="input" value={form.breedingPrice} onChange={(e) => set('breedingPrice', Number(e.target.value) || 0)} />
                 </Field>
-                <Field label="Extend health warranty — price ($)" hint="default = price + $400">
+                <Field label="Extend health warranty, price ($)" hint="default is price plus $400">
                   <input type="number" min={0} className="input" value={form.warrantyPrice} onChange={(e) => set('warrantyPrice', Number(e.target.value) || 0)} />
                 </Field>
               </div>
@@ -455,7 +455,7 @@ function Field({ label, hint, required, children }: { label: string; hint?: stri
     <label className="block">
       <span className="label">
         {label} {required && <span className="text-ember">*</span>}
-        {hint && <span className="ml-1 font-normal text-muted">— {hint}</span>}
+        {hint && <span className="ml-1 font-normal text-muted">({hint})</span>}
       </span>
       {children}
     </label>

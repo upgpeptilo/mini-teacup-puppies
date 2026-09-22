@@ -76,7 +76,7 @@ export default function DogsAdminPage() {
         <div>
           <h1 className="text-3xl font-extrabold text-forest-800">Puppies</h1>
           <p className="mt-1 text-muted">
-            {loading ? 'Loading…' : `${dogs.length} listing${dogs.length === 1 ? '' : 's'}`} — published puppies appear on the live site.
+            {loading ? 'Loading…' : `${dogs.length} listing${dogs.length === 1 ? '' : 's'}`}. Published puppies appear on the live site.
           </p>
         </div>
         <Link href="/admin/dogs/new" className="btn-primary">

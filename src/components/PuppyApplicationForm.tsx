@@ -184,17 +184,17 @@ export default function PuppyApplicationForm({ dogId, dogName, dogs }: Props) {
                 <FormField label="Children at home?" htmlFor="a-children">
                   <select id="a-children" className="input" value={data.hasChildren} onChange={(e) => update('hasChildren', e.target.value)}>
                     <option>No</option>
-                    <option>Yes — under 5</option>
-                    <option>Yes — 5 to 12</option>
-                    <option>Yes — teenagers</option>
+                    <option>Yes, under 5</option>
+                    <option>Yes, 5 to 12</option>
+                    <option>Yes, teenagers</option>
                   </select>
                 </FormField>
                 <FormField label="Other pets?" htmlFor="a-pets" className="sm:col-span-2">
                   <select id="a-pets" className="input" value={data.hasPets} onChange={(e) => update('hasPets', e.target.value)}>
                     <option>No</option>
-                    <option>Yes — dogs</option>
-                    <option>Yes — cats</option>
-                    <option>Yes — dogs and cats</option>
+                    <option>Yes, dogs</option>
+                    <option>Yes, cats</option>
+                    <option>Yes, dogs and cats</option>
                   </select>
                 </FormField>
               </div>
@@ -206,16 +206,16 @@ export default function PuppyApplicationForm({ dogId, dogName, dogs }: Props) {
                   <p className="font-bold text-forest-800">You&apos;re applying to reserve {displayDogName}.</p>
                   <ul className="mt-3 space-y-1.5 text-ink/80">
                     <li>
-                      <strong>Name:</strong> {data.name || '—'}
+                      <strong>Name:</strong> {data.name || 'Not given'}
                     </li>
                     <li>
-                      <strong>Email:</strong> {data.email || '—'}
+                      <strong>Email:</strong> {data.email || 'Not given'}
                     </li>
                     <li>
-                      <strong>Phone:</strong> {data.phone || '—'}
+                      <strong>Phone:</strong> {data.phone || 'Not given'}
                     </li>
                     <li>
-                      <strong>Location:</strong> {data.address || '—'}
+                      <strong>Location:</strong> {data.address || 'Not given'}
                     </li>
                     <li>
                       <strong>Home:</strong> {data.homeType}

@@ -11,7 +11,7 @@ function friendlyError(msg: string): string {
     return 'Your email is not confirmed yet. Open the confirmation link in your inbox, or confirm the user in Supabase → Authentication → Users.';
   }
   if (m.includes('invalid login')) {
-    return 'Wrong email or password — or this account has not been created yet in Supabase.';
+    return 'Wrong email or password, or this account has not been created yet in Supabase.';
   }
   return msg;
 }
@@ -75,7 +75,7 @@ export default function LoginPage() {
         </form>
 
         <p className="mt-6 text-center text-xs text-muted">
-          Need an account? Create one in your Supabase dashboard (Authentication&nbsp;→&nbsp;Users) — any account you create there can sign in here.
+          Need an account? Create one in your Supabase dashboard (Authentication&nbsp;→&nbsp;Users). Any account you create there can sign in here.
         </p>
       </div>
     </div>

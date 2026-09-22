@@ -48,7 +48,7 @@ function readError(e: unknown): string {
   if (e && typeof e === 'object') {
     const o = e as { message?: unknown; details?: unknown; hint?: unknown; code?: unknown };
     const parts = [o.message, o.details, o.hint].filter((p): p is string => typeof p === 'string' && p.trim().length > 0);
-    const text = parts.join(' — ');
+    const text = parts.join('. ');
     if (text) return o.code ? `${text} (code ${String(o.code)})` : text;
   }
   return 'Save failed. Please try again.';
@@ -232,10 +232,10 @@ export default function BlogPostForm({ rowId }: { rowId?: string }) {
           {/* SEO */}
           <section className="card space-y-4 p-6">
             <h2 className="text-lg font-extrabold text-forest-800">SEO</h2>
-            <Field label="Meta title" hint={`${form.metaTitle.length}/60 — leave blank to use the title`}>
+            <Field label="Meta title" hint={`${form.metaTitle.length}/60. Leave blank to use the title`}>
               <input className="input" value={form.metaTitle} onChange={(e) => set('metaTitle', e.target.value)} />
             </Field>
-            <Field label="Meta description" hint={`${form.metaDescription.length}/160 — leave blank to use the excerpt`}>
+            <Field label="Meta description" hint={`${form.metaDescription.length}/160. Leave blank to use the excerpt`}>
               <textarea rows={3} className="input" value={form.metaDescription} onChange={(e) => set('metaDescription', e.target.value)} />
             </Field>
             <Field label="Tags" hint="Comma separated, e.g. puppy care, breed info">
@@ -260,7 +260,7 @@ function Field({ label, hint, required, children }: { label: string; hint?: stri
     <label className="block">
       <span className="label">
         {label} {required && <span className="text-ember">*</span>}
-        {hint && <span className="ml-1 font-normal text-muted">— {hint}</span>}
+        {hint && <span className="ml-1 font-normal text-muted">({hint})</span>}
       </span>
       {children}
     </label>

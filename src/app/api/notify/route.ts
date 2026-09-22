@@ -55,8 +55,8 @@ function buildEmail(payload: NotifyPayload): { subject: string; text: string; ht
       };
     case 'contract':
       return {
-        subject: `Signed puppy contract: ${payload.buyerName ?? ''} — ${payload.dogName || 'a puppy'}`,
-        text: `Buyer: ${payload.buyerName}\nEmail: ${payload.email}\nPhone: ${payload.phone}\nPuppy: ${payload.dogName || 'Not specified'}\nAddress: ${payload.address || 'Not provided'}\nShipping: ${payload.shippingOption || 'Not specified'}\nPayment method: ${payload.paymentMethod || 'Not specified'}\nAgreed price: ${payload.price || 'Not specified'}\n\nSigned by the buyer — signature attached.`,
+        subject: `Signed puppy contract: ${payload.buyerName ?? ''}, ${payload.dogName || 'a puppy'}`,
+        text: `Buyer: ${payload.buyerName}\nEmail: ${payload.email}\nPhone: ${payload.phone}\nPuppy: ${payload.dogName || 'Not specified'}\nAddress: ${payload.address || 'Not provided'}\nShipping: ${payload.shippingOption || 'Not specified'}\nPayment method: ${payload.paymentMethod || 'Not specified'}\nAgreed price: ${payload.price || 'Not specified'}\n\nSigned by the buyer. Signature attached.`,
         html: renderAdminEmail({
           emoji: '✍️',
           heading: 'Signed puppy contract',

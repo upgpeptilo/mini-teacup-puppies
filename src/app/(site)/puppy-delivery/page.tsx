@@ -9,21 +9,21 @@ const sections: Array<{ h: string; p: string[] }> = [
     h: 'How delivery works',
     p: [
       'We offer three ways to bring your puppy home, and we\'ll help you choose the right one when you reserve:',
-      '• Ground transport — nationwide door-to-door delivery by pet-experienced transporters.',
-      '• Flight nanny — a dedicated escort flies with your puppy on a commercial flight and hands them to you at the airport.',
-      '• Local or airport pickup — collect your puppy in person, or meet us at a nearby airport.',
+      '• Ground transport: nationwide delivery to your door by experienced pet transporters.',
+      '• Flight nanny: a dedicated escort flies with your puppy on a commercial flight and hands them to you at the airport.',
+      '• Local or airport pickup: collect your puppy in person, or meet us at a nearby airport.',
     ],
   },
   {
-    h: 'Delivery areas & cost',
+    h: 'Delivery areas and cost',
     p: [
-      "We're based in the US and ship internationally. Cost depends on your location and the method you choose, so contact us for a quote once you've reserved a puppy.",
+      "We're based in the US and we ship all over the world. Cost depends on your location and the method you choose, so contact us for a quote once you've reserved a puppy.",
     ],
   },
   {
     h: 'Preparing for arrival',
     p: [
-      'Every puppy is vet-checked, vaccinated appropriately for their age and dewormed before they travel — we never send a puppy that isn\'t ready or healthy enough for the trip.',
+      'Every puppy is checked by a vet, vaccinated for their age, and dewormed before they travel. We never send a puppy that isn\'t ready or healthy enough for the trip.',
       `You'll receive vet exam, vaccination and deworming records along with your puppy. Questions before or after delivery? Email us at ${site.email} or call, text, or WhatsApp us at ${site.phone}.`,
     ],
   },

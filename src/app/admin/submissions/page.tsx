@@ -89,7 +89,7 @@ export default function SubmissionsPage() {
                   {tab === 'orders' && (
                     <>
                       <p className="font-bold text-forest-800">
-                        {row.customer_name} — {fmtMoney(row.total)}
+                        {row.customer_name}: {fmtMoney(row.total)}
                       </p>
                       <p className="mt-1 text-sm text-muted">
                         {row.email} · {row.phone}
@@ -97,7 +97,7 @@ export default function SubmissionsPage() {
                       <ul className="mt-2 space-y-0.5 text-sm text-ink/80">
                         {(row.items ?? []).map((it: Row, idx: number) => (
                           <li key={idx}>
-                            • {it.name} — {it.optionLabel} ({fmtMoney(it.price)})
+                            • {it.name}: {it.optionLabel} ({fmtMoney(it.price)})
                           </li>
                         ))}
                       </ul>
@@ -113,7 +113,7 @@ export default function SubmissionsPage() {
                   {tab === 'applications' && (
                     <>
                       <p className="font-bold text-forest-800">
-                        {row.name} — wants to reserve {row.dog_name || '—'}
+                        {row.name}, wants to reserve {row.dog_name || 'Not given'}
                       </p>
                       <p className="mt-1 text-sm text-muted">
                         {row.email} · {row.phone}
@@ -127,7 +127,7 @@ export default function SubmissionsPage() {
                   {tab === 'contracts' && (
                     <>
                       <p className="font-bold text-forest-800">
-                        {row.buyer_name} — {row.dog_name || 'a puppy'} {row.price ? `(${fmtMoney(row.price)})` : ''}
+                        {row.buyer_name}, {row.dog_name || 'a puppy'} {row.price ? `(${fmtMoney(row.price)})` : ''}
                       </p>
                       <p className="mt-1 text-sm text-muted">
                         {row.email} · {row.phone}

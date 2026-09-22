@@ -68,7 +68,7 @@ export default function PuppyContractForm({ dogs }: Props) {
     else if (!emailPattern.test(data.email)) next.email = 'Enter a valid email.';
     if (!data.phone.trim()) next.phone = 'A phone number is required.';
     else if (!phonePattern.test(data.phone)) next.phone = 'Enter a valid phone number.';
-    if (!data.address.trim()) next.address = 'Please add your delivery/pick-up address.';
+    if (!data.address.trim()) next.address = 'Please add your delivery or pick up address.';
     if (!data.shippingOption) next.shippingOption = 'Please choose delivery or pick up.';
     if (!data.paymentMethod) next.paymentMethod = 'Please choose a payment method.';
     if (!signature) next.signature = 'Please sign above before submitting.';
@@ -196,7 +196,7 @@ export default function PuppyContractForm({ dogs }: Props) {
       </form>
 
       <Modal open={success} onClose={() => router.push('/')} title="Contract received!">
-        Thanks — your signed contract has been sent to us and we&apos;ll be in touch shortly to confirm next steps.
+        Thank you. Your signed contract has been sent to us and we&apos;ll be in touch shortly to confirm next steps.
       </Modal>
     </>
   );

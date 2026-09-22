@@ -22,8 +22,8 @@ export default function Footer() {
         <div>
           <Logo variant="light" />
           <p className="mt-4 max-w-xs text-sm text-cream/70">
-            {site.name} — {site.tagline}. Health-tested, home-raised puppies, raised with love.
-            US-based, with international shipping available.
+            {site.name}. {site.tagline}. Healthy, home raised puppies, raised with love.
+            Based in the US, with shipping all over the world.
           </p>
           <div className="mt-5 flex gap-3">
             <SocialLink href={site.social.facebook} label="Facebook">
@@ -91,7 +91,7 @@ export default function Footer() {
               <ShieldIcon className="h-4 w-4 text-ember-200" /> Health Guarantee
             </span>
             <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-xs font-medium">
-              <StarIcon className="h-3.5 w-3.5 text-ember-200" /> 5-Star Breeder
+              <StarIcon className="h-3.5 w-3.5 text-ember-200" /> 5 Star Breeder
             </span>
             <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-xs font-medium">
               <LockIcon className="h-3.5 w-3.5 text-ember-200" /> Secure Checkout
@@ -115,8 +115,8 @@ export default function Footer() {
           </div>
         </div>
         <p className="container-page pb-6 text-center text-[11px] leading-relaxed text-cream/40">
-          {site.name} is a family-run breeder of Mini Teacup Puppies, based in the US with international
-          shipping available. Puppies are vet-checked, vaccinated and microchipped before they travel, and
+          {site.name} is a family run breeder of Mini Teacup Puppies, based in the US with shipping all
+          over the world. Puppies are checked by a vet, vaccinated and microchipped before they travel, and
           every puppy comes with a written health guarantee.
         </p>
       </div>

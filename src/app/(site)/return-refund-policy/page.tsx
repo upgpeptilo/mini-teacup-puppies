@@ -13,14 +13,14 @@ const sections: Array<{ h: string; p: string[] }> = [
   {
     h: 'Deposits',
     p: [
-      'Deposits secure a specific puppy and are non-refundable if you simply change your mind, except in the circumstances below.',
+      'Deposits secure a specific puppy and are not refundable if you simply change your mind, except in the circumstances below.',
       'The balance of the price is due before the puppy travels.',
     ],
   },
   {
     h: 'If we cannot supply your puppy',
     p: [
-      'If we are unable to supply the puppy you reserved — for example due to illness or a change in the litter — you may choose another available puppy, wait for the next litter, or receive a full refund of your deposit.',
+      'If we are unable to supply the puppy you reserved, for example due to illness or a change in the litter, you may choose another available puppy, wait for the next litter, or receive a full refund of your deposit.',
       'Nothing in this policy limits your rights under applicable consumer law.',
     ],
   },

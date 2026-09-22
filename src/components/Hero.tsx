@@ -40,15 +40,15 @@ export default function Hero() {
             className="mt-4 animate-fade-up text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl"
             style={{ animationDelay: '120ms', animationFillMode: 'backwards' }}
           >
-            Health-tested Mini Teacup Puppies <span className="text-forest">raised with love</span>
+            Health Checked Mini Teacup Puppies <span className="text-forest">raised with love</span>
           </h1>
 
           <p
             className="mt-5 max-w-xl animate-fade-up text-lg leading-relaxed text-muted"
             style={{ animationDelay: '240ms', animationFillMode: 'backwards' }}
           >
-            We raise confident, well-socialised Yorkie, Maltipoo, Poodle, Shih Tzu and Dachshund puppies —
-            vet-checked, vaccinated and ready to join your family. US-based, with international shipping available.
+            We raise confident, well socialised Yorkie, Maltipoo, Poodle, Shih Tzu and Dachshund puppies,
+            checked by a vet, vaccinated and ready to join your family. Based in the US, with shipping all over the world.
           </p>
 
           <div

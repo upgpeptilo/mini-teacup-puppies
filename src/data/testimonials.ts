@@ -12,7 +12,7 @@ export const testimonials: Testimonial[] = [
     customerName: 'The Ramirez Family',
     dogName: 'Daisy',
     quote:
-      "Daisy has been the perfect addition to our family. She's gentle with our kids and clearly health-tested — you can tell this breeder does it right.",
+      "Daisy has been the perfect addition to our family. She's gentle with our kids and clearly checked by a vet. You can tell this breeder does it right.",
     rating: 5,
     photo: img(40),
   },
@@ -30,7 +30,7 @@ export const testimonials: Testimonial[] = [
     customerName: 'Priya S.',
     dogName: 'Luna',
     quote:
-      "Luna is smart, well-socialized and clearly raised with a lot of love. Couldn't ask for a better puppy experience.",
+      "Luna is smart, well socialized and clearly raised with a lot of love. Couldn't ask for a better puppy experience.",
     rating: 5,
     photo: img(42),
   },
@@ -48,7 +48,7 @@ export const testimonials: Testimonial[] = [
     customerName: 'Jordan K.',
     dogName: 'Teddy',
     quote:
-      'Teddy is everything they described — calm, patient with our kids, and clearly well cared for before we ever met him. Ground transport went smoothly too.',
+      'Teddy is everything they described. Calm, patient with our kids, and clearly well cared for before we ever met him. Ground transport went smoothly too.',
     rating: 5,
     photo: img(44),
   },

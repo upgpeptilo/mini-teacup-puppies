@@ -14,8 +14,8 @@ const faqs: Array<{ question: string; answer: React.ReactNode }> = [
         <a href={waLink()} target="_blank" rel="noopener noreferrer" className="font-semibold text-ember underline">
           WhatsApp
         </a>{' '}
-        with the puppy you&apos;re interested in. Once we confirm availability, a deposit secures your puppy — the
-        deposit is deducted from the final balance.
+        with the puppy you&apos;re interested in. Once we confirm availability, a deposit secures your puppy. The
+        deposit is taken off the final balance.
       </>
     ),
   },
@@ -26,12 +26,12 @@ const faqs: Array<{ question: string; answer: React.ReactNode }> = [
   {
     question: 'What does the health guarantee cover?',
     answer:
-      'Every puppy leaves us vet-checked, vaccinated appropriately for its age, dewormed and microchipped, with full records supplied, plus a written health guarantee against congenital defects. We recommend having your own vet examine your puppy within 72 hours of arrival.',
+      'Every puppy leaves us checked by a vet, vaccinated for its age, dewormed and microchipped, with full records supplied, plus a written health guarantee against defects present from birth. We recommend having your own vet examine your puppy within 72 hours of arrival.',
   },
   {
     question: 'Do you deliver, and what are my options?',
     answer:
-      "Yes — we're based in the US and ship internationally. Options include ground transport nationwide, a flight nanny who escorts your puppy on a commercial flight, and local or airport pickup. See our Puppy Delivery page for details.",
+      "Yes, we're based in the US and we ship all over the world. Options include ground transport nationwide, a flight nanny who flies with your puppy on a commercial flight, and local or airport pickup. See our Puppy Delivery page for details.",
   },
   {
     question: 'What comes with my puppy?',
@@ -41,7 +41,7 @@ const faqs: Array<{ question: string; answer: React.ReactNode }> = [
   {
     question: 'Are your puppies registered?',
     answer:
-      'Registration varies by puppy — some are UKC registered, noted on that puppy\'s listing. Ask us about the registration status of any puppy you\'re interested in.',
+      'Registration varies by puppy. Some are UKC registered, noted on that puppy\'s listing. Ask us about the registration status of any puppy you\'re interested in.',
   },
   {
     question: 'At what age can I take my puppy home?',
@@ -51,7 +51,7 @@ const faqs: Array<{ question: string; answer: React.ReactNode }> = [
   {
     question: 'Can I see more photos or ask about a specific puppy\'s temperament before reserving?',
     answer:
-      'Absolutely — message us through the contact form with the puppy\'s name and we\'ll answer any questions and share more photos or video.',
+      'Of course. Message us through the contact form with the puppy\'s name and we\'ll answer any questions and share more photos or video.',
   },
 ];
 

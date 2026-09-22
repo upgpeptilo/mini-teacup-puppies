@@ -9,7 +9,7 @@ const heroImg = allPhotos[2];
 
 export const metadata: Metadata = {
   title: 'Available Mini Teacup Puppies',
-  description: 'Browse available Yorkie, Maltipoo, Poodle, Shih Tzu and Dachshund puppies — vet-checked, vaccinated and home-raised. Reserve yours today, with nationwide delivery.',
+  description: 'Browse available Yorkie, Maltipoo, Poodle, Shih Tzu and Dachshund puppies. Checked by a vet, vaccinated, and raised at home. Reserve yours today, with nationwide delivery.',
 };
 
 export default async function DogsPage() {
@@ -45,7 +45,7 @@ export default async function DogsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema ? [itemListSchema, breadcrumbJsonLd] : breadcrumbJsonLd) }}
       />
-      <PageHero title="Available Mini Teacup Puppies" subtitle="Browse our available puppies — vet-checked, vaccinated and ready for their new homes. Nationwide delivery available." image={heroImg} />
+      <PageHero title="Available Mini Teacup Puppies" subtitle="Browse our available puppies. Checked by a vet, vaccinated, and ready for their new homes. Nationwide delivery available." image={heroImg} />
 
       <section className="container-page py-12 md:py-16">
         <DogsBrowser dogs={dogs} />

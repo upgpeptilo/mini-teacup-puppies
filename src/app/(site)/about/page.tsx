@@ -11,14 +11,14 @@ import { allPhotos } from '@/data/teacupPhotos';
 const heroImg = allPhotos[8];
 
 const values = [
-  { icon: <HeartIcon className="h-7 w-7" />, title: 'Compassion first', text: 'Every puppy is raised underfoot in our home with patience and affection — from birth to the day they go home.' },
+  { icon: <HeartIcon className="h-7 w-7" />, title: 'Compassion first', text: 'Every puppy is raised in our home with patience and affection, from birth to the day they go home.' },
   { icon: <ShieldIcon className="h-7 w-7" />, title: 'Health guaranteed', text: 'Vet checks, vaccinations and honest health records come standard before any puppy is placed.' },
   { icon: <HandshakeIcon className="h-7 w-7" />, title: 'Lifelong support', text: 'We stay in touch long after pickup, with friendly advice whenever you need it.' },
 ];
 
 export const metadata: Metadata = {
-  title: 'About Us — Mini Teacup Puppy Breeder',
-  description: `Learn about ${site.name}, how we home-raise healthy, socialized Mini Teacup Puppies, and our written health guarantee.`,
+  title: 'About Us: Mini Teacup Puppy Breeder',
+  description: `Learn about ${site.name}, how we raise healthy, socialized Mini Teacup Puppies at home, and our written health guarantee.`,
 };
 
 export default function AboutPage() {
@@ -26,7 +26,7 @@ export default function AboutPage() {
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
     name: `About Us | ${site.name}`,
-    description: `Learn about ${site.name}, how we home-raise healthy, socialized Mini Teacup Puppies, and our written health guarantee.`,
+    description: `Learn about ${site.name}, how we raise healthy, socialized Mini Teacup Puppies at home, and our written health guarantee.`,
     url: `${site.url}/about`,
     mainEntity: { '@type': 'PetStore', name: site.name, url: site.url },
   };
@@ -45,7 +45,7 @@ export default function AboutPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([aboutPageSchema, breadcrumbJsonLd]) }} />
       <PageHero
         title={`About ${site.name}`}
-        subtitle="A small, passionate breeder raising healthy, well-socialised Mini Teacup Puppies for families across the US and worldwide."
+        subtitle="A small, passionate breeder raising healthy, well socialised Mini Teacup Puppies for families across the US and worldwide."
         image={heroImg}
         breadcrumb="About Us"
       />
@@ -59,19 +59,19 @@ export default function AboutPage() {
           <div>
             <SectionHeading align="left" eyebrow="Our story" title={`Raising exceptional Mini Teacup Puppies since ${site.foundedYear}`} className="!mx-0" />
             <p className="mt-5 leading-relaxed text-ink/85">
-              {site.name} began with a simple love for small, big-hearted breeds. Our Yorkie, Maltipoo, Poodle, Shih
-              Tzu and Dachshund puppies are raised underfoot in our home — not in kennels — so they grow up
+              {site.name} began with a simple love for small dogs with big hearts. Our Yorkie, Maltipoo, Poodle, Shih
+              Tzu and Dachshund puppies are raised in our home, not in kennels, so they grow up
               confident, affectionate and beautifully socialised with people and other pets.
             </p>
             <p className="mt-4 leading-relaxed text-ink/85">
-              Every puppy is health-checked, vaccinated and comes with a health guarantee. Over the years we&apos;ve
-              placed <strong className="text-forest-700">{site.soldCount} puppies</strong> with happy families — and
-              counting.
+              Every puppy is checked by a vet, vaccinated and comes with a health guarantee. Over the years we&apos;ve
+              placed <strong className="text-forest-700">{site.soldCount} puppies</strong> with happy families,
+              and counting.
             </p>
             <div className="mt-6 rounded-2xl bg-forest-50 p-5">
               <p className="font-bold text-forest-800">Our promise</p>
               <p className="mt-1 text-sm text-ink/80">
-                To raise healthy, happy, well-socialised Mini Teacup Puppies and match them with loving families —
+                To raise healthy, happy, well socialised Mini Teacup Puppies and match them with loving families,
                 with support for life.
               </p>
             </div>
@@ -82,10 +82,10 @@ export default function AboutPage() {
       {/* Trust */}
       <section className="bg-sand/60 py-14">
         <div className="container-page grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <TrustBadge icon={<ShieldIcon />} title="Health Guarantee" subtitle="Vet-checked & vaccinated" />
+          <TrustBadge icon={<ShieldIcon />} title="Health Guarantee" subtitle="Checked by a vet and vaccinated" />
           <TrustBadge icon={<HeartIcon />} title={`${site.soldCount} Puppies Placed`} subtitle={`Since ${site.foundedYear}`} />
-          <TrustBadge icon={<PawIcon />} title="Nationwide Delivery" subtitle="Safe door-to-door transport" />
-          <TrustBadge icon={<StarIcon />} title="5-Star Breeder" subtitle="Trusted by families" />
+          <TrustBadge icon={<PawIcon />} title="Nationwide Delivery" subtitle="Safe delivery to your door" />
+          <TrustBadge icon={<StarIcon />} title="5 Star Breeder" subtitle="Trusted by families" />
         </div>
       </section>
 
@@ -137,11 +137,11 @@ export default function AboutPage() {
             <h2 className="mt-3 text-3xl font-extrabold text-white">Why families love Mini Teacup Puppies</h2>
             <p className="mt-4 leading-relaxed text-cream/85">
               Yorkies, Maltipoos, Poodles, Shih Tzus and Dachshunds are some of the most affectionate,
-              people-oriented breeds around — small enough to go everywhere with you, and big-hearted enough to
+              people loving breeds around, small enough to go everywhere with you, and big hearted enough to
               fill any home with love.
             </p>
             <ul className="mt-5 space-y-2 text-cream/85">
-              <li>• Portable, apartment-friendly size with a huge personality</li>
+              <li>• A small size that fits easily in an apartment, with a huge personality</li>
               <li>• Great with children when properly socialised</li>
               <li>• Raised in our home and beautifully socialised</li>
             </ul>

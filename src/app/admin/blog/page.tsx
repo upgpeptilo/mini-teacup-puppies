@@ -70,7 +70,7 @@ export default function BlogAdminPage() {
         <div>
           <h1 className="text-3xl font-extrabold text-forest-800">Blog</h1>
           <p className="mt-1 text-muted">
-            {loading ? 'Loading…' : `${posts.length} post${posts.length === 1 ? '' : 's'}`} — published posts appear on the live site.
+            {loading ? 'Loading…' : `${posts.length} post${posts.length === 1 ? '' : 's'}`}. Published posts appear on the live site.
           </p>
         </div>
         <Link href="/admin/blog/new" className="btn-primary">

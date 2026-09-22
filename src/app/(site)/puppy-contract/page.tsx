@@ -26,15 +26,15 @@ const sections: Array<{ h: string; p: string[] }> = [
     h: 'Prices, deposits and payment',
     p: [
       "Prices are shown in US dollars on each puppy's page. Deposits are deducted from the final balance.",
-      'Deposits secure a specific puppy and are non-refundable if you change your mind, except as set out in our Return & Refund Policy.',
+      'Deposits secure a specific puppy and are not refundable if you change your mind, except as set out in our Return & Refund Policy.',
       'The balance is due before the puppy travels. We will confirm accepted payment methods when you reserve.',
     ],
   },
   {
     h: 'Health guarantee',
     p: [
-      'Every puppy leaves us vet-checked, vaccinated appropriately for its age, dewormed and microchipped, with its records supplied.',
-      'We provide a written health guarantee against congenital defects with each puppy. The guarantee document issued with your puppy sets out its exact scope and duration and takes precedence over this summary.',
+      'Every puppy leaves us checked by a vet, vaccinated for its age, dewormed and microchipped, with its records supplied.',
+      'We provide a written health guarantee against defects present from birth with each puppy. The guarantee document issued with your puppy sets out its exact scope and duration and takes priority over this summary.',
       'We ask that you have your puppy examined by your own vet within 72 hours of arrival so that any concern is identified straight away.',
     ],
   },
@@ -42,7 +42,7 @@ const sections: Array<{ h: string; p: string[] }> = [
     h: 'Your responsibilities as an owner',
     p: [
       'By buying from us you agree to provide appropriate food, shelter, training and veterinary care for the life of the dog, and to supervise your puppy rather than leaving them outside unattended.',
-      'If you are ever unable to keep your dog, we ask that you contact us first — we would rather take a dog back than see it rehomed through a shelter, pet shop or research facility.',
+      'If you are ever unable to keep your dog, we ask that you contact us first. We would rather take a dog back than see it rehomed through a shelter, pet shop or research facility.',
       'We reserve the right to approve or decline any transfer of the dog to a third party.',
       'We may check in with you from time to time after the sale to confirm your puppy is being properly cared for.',
     ],
@@ -51,7 +51,7 @@ const sections: Array<{ h: string; p: string[] }> = [
     h: 'Liability',
     p: [
       'We share known health, lineage and temperament information in good faith. Dogs are living animals and no breeder can guarantee future health or personality beyond the written guarantee provided.',
-      'Once your puppy goes home with you, you are responsible for their care and behavior — we are not liable for any damage or injury your dog causes after the sale.',
+      'Once your puppy goes home with you, you are responsible for their care and behavior. We are not liable for any damage or injury your dog causes after the sale.',
     ],
   },
   {
@@ -71,7 +71,7 @@ export default async function PuppyContractPage() {
         <section>
           <h2 className="text-2xl font-extrabold text-forest-800">Sign this contract</h2>
           <p className="mt-3 leading-relaxed text-ink/85">
-            Ready to move forward? Fill in your details and sign below — we&apos;ll email you and our team a copy. The full terms are below for your reference.
+            Ready to move forward? Fill in your details and sign below. We&apos;ll email you and our team a copy. The full terms are below for your reference.
           </p>
           <div className="mt-6">
             <PuppyContractForm dogs={reservable} />

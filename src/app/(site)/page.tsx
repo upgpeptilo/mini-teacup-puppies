@@ -20,8 +20,8 @@ import { fetchPublicDogsServer, fetchPublicTestimonialsServer } from '@/lib/db.s
 import { allPhotos } from '@/data/teacupPhotos';
 
 const services = [
-  { icon: <HeartIcon className="h-7 w-7" />, title: 'Health-Tested', text: 'Every puppy is vet-checked, vaccinated and comes with a written health guarantee.' },
-  { icon: <PawIcon className="h-7 w-7" />, title: 'Home-Raised', text: 'Our puppies are raised underfoot in our home and beautifully socialised from birth.' },
+  { icon: <HeartIcon className="h-7 w-7" />, title: 'Health Checked', text: 'Every puppy is checked by a vet, vaccinated and comes with a written health guarantee.' },
+  { icon: <PawIcon className="h-7 w-7" />, title: 'Raised at Home', text: 'Our puppies are raised in our home and lovingly socialised from birth.' },
   { icon: <HomeIcon className="h-7 w-7" />, title: 'Perfect Match', text: 'We help you choose the puppy whose personality fits your family best.' },
   { icon: <ShieldIcon className="h-7 w-7" />, title: 'Lifelong Support', text: 'We are here for advice and guidance long after your puppy goes home.' },
 ];
@@ -29,7 +29,7 @@ const services = [
 const reservationSteps = [
   { step: '01', icon: <SearchIcon className="h-6 w-6" />, title: 'Browse our puppies', text: 'Explore our available Mini Teacup Puppies and find the one whose look and personality you love.' },
   { step: '02', icon: <ClipboardIcon className="h-6 w-6" />, title: 'Reserve with a deposit', text: 'Place a deposit to hold your puppy. We keep you updated with photos and videos as they grow.' },
-  { step: '03', icon: <ShieldIcon className="h-6 w-6" />, title: 'Health check & vaccines', text: 'Your puppy is vet-checked, vaccinated and ready to go home once old enough to travel.' },
+  { step: '03', icon: <ShieldIcon className="h-6 w-6" />, title: 'Health check & vaccines', text: 'Your puppy is checked by a vet, vaccinated and ready to go home once old enough to travel.' },
   { step: '04', icon: <HeartIcon className="h-6 w-6" />, title: 'Pickup or delivery', text: 'Collect your puppy in person, or we arrange safe nationwide delivery to your door.' },
 ];
 
@@ -48,7 +48,7 @@ export default async function HomePage() {
           <div>
             <h2 className="text-2xl font-extrabold text-white sm:text-3xl">Tiny Companions, Big Love</h2>
             <p className="mt-2 max-w-2xl text-cream/80">
-              Yorkies, Maltipoos, Poodles, Shih Tzus and Dachshunds are affectionate, portable and devoted — and we
+              Yorkies, Maltipoos, Poodles, Shih Tzus and Dachshunds are loving, easy to carry, and devoted. We
               raise ours with love from day one, so they settle into your family with ease.
             </p>
           </div>
@@ -103,13 +103,13 @@ export default async function HomePage() {
           <Reveal>
             <SectionHeading align="left" eyebrow="About us" title="A breeder built on love for Mini Teacup Puppies" className="!mx-0" />
             <p className="mt-5 leading-relaxed text-ink/85">
-              Founded in {site.foundedYear} by a family of small-breed lovers, we raise our Yorkie, Maltipoo, Poodle,
-              Shih Tzu and Dachshund puppies underfoot in our home — never in kennels — so they grow up confident,
+              Founded in {site.foundedYear} by a family who loves small dogs, we raise our Yorkie, Maltipoo, Poodle,
+              Shih Tzu and Dachshund puppies in our home, never in kennels, so they grow up confident,
               affectionate and ready to bond with you.
             </p>
             <p className="mt-4 leading-relaxed text-ink/85">
-              Every puppy is fully health-checked, vaccinated and micro-chipped before going home, and comes with a
-              health guarantee. We stay in touch long after pickup — because our families are part of ours.
+              Every puppy is fully checked by a vet, vaccinated and microchipped before going home, and comes with a
+              health guarantee. We stay in touch long after pickup, because our families are part of ours.
             </p>
 
             <div className="mt-7 grid grid-cols-3 gap-4 border-t border-forest-100 pt-6">
@@ -182,7 +182,7 @@ export default async function HomePage() {
       {/* Testimonials */}
       {testimonials.length > 0 && (
         <section className="container-page py-16 md:py-24">
-          <SectionHeading eyebrow="Happy families" title="What our families say" description="Families across the country trust us for healthy, well-socialised Mini Teacup Puppies." />
+          <SectionHeading eyebrow="Happy families" title="What our families say" description="Families across the country trust us for healthy, well socialised Mini Teacup Puppies." />
           <Reveal stagger={0.1} className="mt-12 grid gap-6 md:grid-cols-3">
             {testimonials.slice(0, 3).map((t) => (
               <div key={t.id} className="card flex flex-col gap-3 p-6">
@@ -208,7 +208,7 @@ export default async function HomePage() {
       {/* Health guarantee + delivery */}
       <section className="bg-sand/40 py-16 md:py-20">
         <div className="container-page">
-          <SectionHeading eyebrow="Why buy from us" title="More than just a puppy" description="Every family gets a healthy, well-socialised companion — plus our guidance and support for life." />
+          <SectionHeading eyebrow="Why buy from us" title="More than just a puppy" description="Every family gets a healthy, well socialised companion, plus our guidance and support for life." />
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             <div className="relative overflow-hidden rounded-3xl bg-forest p-8 text-white">
               <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15">
@@ -220,7 +220,7 @@ export default async function HomePage() {
                 for total peace of mind.
               </p>
               <ul className="mt-4 space-y-2 text-sm text-cream/80">
-                {['Vet-checked & vaccinated', 'Dewormed', 'Microchipped', 'Written health guarantee'].map((item) => (
+                {['Checked by a vet and vaccinated', 'Dewormed', 'Microchipped', 'Written health guarantee'].map((item) => (
                   <li key={item} className="flex items-center gap-2">
                     <CheckIcon className="h-4 w-4 text-ember-200" /> {item}
                   </li>
@@ -237,11 +237,11 @@ export default async function HomePage() {
               </div>
               <h3 className="text-2xl font-extrabold text-white">Pickup &amp; delivery</h3>
               <p className="mt-3 leading-relaxed text-white/85">
-                Collect your puppy in person or let us bring them safely to you. We arrange careful, stress-free
+                Collect your puppy in person or let us bring them safely to you. We arrange careful, easy
                 transport anywhere in the US.
               </p>
               <ul className="mt-4 space-y-2 text-sm text-white/85">
-                {['Safe nationwide delivery', 'Photo & video updates', 'Support before & after'].map((item) => (
+                {['Safe nationwide delivery', 'Photo and video updates', 'Support before and after'].map((item) => (
                   <li key={item} className="flex items-center gap-2">
                     <CheckIcon className="h-4 w-4 text-white/70" /> {item}
                   </li>
@@ -261,7 +261,7 @@ export default async function HomePage() {
         <div className="container-page relative">
           <h2 className="mx-auto max-w-2xl text-3xl font-extrabold text-white sm:text-4xl">Ready to welcome a Mini Teacup Puppy?</h2>
           <p className="mx-auto mt-4 max-w-xl text-cream/80">
-            Reserve your puppy today and we&apos;ll guide you through every step — from deposit to delivery. Your new
+            Reserve your puppy today and we&apos;ll guide you through every step, from deposit to delivery. Your new
             best friend is waiting.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
