@@ -98,20 +98,13 @@ export default function Header() {
           Skip to content
         </a>
 
-        {/* Row 1: logo, phone, WhatsApp — always visible, every breakpoint. */}
+        {/* Row 1: logo and WhatsApp — always visible, every breakpoint. */}
         <div className="container-page flex h-11 items-center justify-between gap-4 border-b border-forest-100/60">
           <Link href="/" aria-label={`${site.name} home`} className="shrink-0">
             <Logo />
           </Link>
 
           <div className="flex items-center gap-1 sm:gap-3">
-            <a
-              href={`tel:${site.phone.replace(/\s/g, '')}`}
-              aria-label={`Call ${site.phone}`}
-              className="inline-flex items-center gap-1.5 rounded-full px-2 py-1.5 text-xs font-semibold text-forest-800 transition hover:bg-forest-50 hover:text-ember sm:px-2.5 sm:text-sm"
-            >
-              <PhoneIcon className="h-4 w-4 shrink-0" /> {site.phone}
-            </a>
             <a
               href={waLink()}
               target="_blank"
