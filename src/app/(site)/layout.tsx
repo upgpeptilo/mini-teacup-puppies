@@ -1,6 +1,7 @@
 import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,6 +11,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
         {children}
       </main>
       <Footer />
+      <FloatingWhatsApp />
       <Script src="//code.jivosite.com/widget/CDG7yCbXat" strategy="afterInteractive" />
     </div>
   );
