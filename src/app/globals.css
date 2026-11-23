@@ -106,3 +106,25 @@
     }
   }
 }
+
+/* Blog article typography. The blog page uses prose classes, but
+   @tailwindcss/typography is not installed, so headings rendered at body size. */
+@layer components {
+  .prose { @apply max-w-3xl text-[17px] leading-8 text-ink; }
+  .prose > :first-child { @apply mt-0; }
+  .prose h2 { @apply mt-14 mb-5 scroll-mt-28 text-3xl font-extrabold leading-tight tracking-tight text-forest-800 md:text-4xl; }
+  .prose h3 { @apply mt-10 mb-3 scroll-mt-28 text-2xl font-bold leading-snug text-forest-700; }
+  .prose h4 { @apply mt-8 mb-2 text-xl font-semibold text-forest-700; }
+  .prose p { @apply my-5; }
+  .prose a { @apply font-medium text-ember-600 underline decoration-ember-300 underline-offset-2 hover:text-ember-700; }
+  .prose strong { @apply font-semibold text-ink; }
+  .prose ul { @apply my-5 list-disc space-y-2 pl-6; }
+  .prose ol { @apply my-5 list-decimal space-y-2 pl-6; }
+  .prose li::marker { @apply text-forest-400; }
+  .prose img, .prose figure { @apply my-8 w-full rounded-2xl; }
+  .prose table { @apply my-8 block w-full overflow-x-auto border-collapse text-left text-base; }
+  .prose th { @apply border border-forest-100 bg-forest-50 px-4 py-3 font-semibold text-forest-800; }
+  .prose td { @apply border border-forest-100 px-4 py-3 align-top; }
+  .prose blockquote { @apply my-6 border-l-4 border-ember-300 pl-5 italic text-forest-700; }
+  .prose hr { @apply my-12 border-forest-100; }
+}
