@@ -27,7 +27,7 @@ export default function BlockNoteEditor({ initialContent, onChange, uploadFile }
   return (
     <BlockNoteView
       editor={editor}
-      onChange={() => onChange(editor.document, editor.blocksToFullHTML(editor.document))}
+      onChange={() => onChange(editor.document, editor.blocksToHTMLLossy(editor.document))}
     />
   );
 }

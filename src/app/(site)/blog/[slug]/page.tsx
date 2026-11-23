@@ -20,6 +20,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+// Give every H2/H3/H4 in the post body an id so table-of-contents links (#slug) work.
+const slugify = (s: string) =>
+  s
+    .replace(/<[^>]+>/g, '')
+    .replace(/&[a-z0-9#]+;/gi, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+const withHeadingIds = (html: string) =>
+  html.replace(/<h([234])([^>]*)>([\s\S]*?)<\/h\1>/g, (match, level: string, attrs: string, inner: string) =>
+    /\sid=/.test(attrs) ? match : '<h' + level + attrs + ' id="' + slugify(inner) + '">' + inner + '</h' + level + '>',
+  );
+
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = await fetchPublishedBlogPostBySlugServer(slug);
@@ -58,7 +72,7 @@ export default async function BlogPostPage({ params }: Props) {
       </PageHero>
 
       <section className="container-page py-14 md:py-20">
-        <div className="prose prose-forest mx-auto lg:prose-lg" dangerouslySetInnerHTML={{ __html: post.content }} />
+        <div className="prose prose-forest mx-auto lg:prose-lg" dangerouslySetInnerHTML={{ __html: withHeadingIds(post.content) }} />
         <div className="mt-16 text-center">
           <Link href="/blog" className="btn-ghost">
             &larr; Back to all posts
