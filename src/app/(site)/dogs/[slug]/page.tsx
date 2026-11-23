@@ -1,3 +1,4 @@
+import type React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -45,6 +46,117 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 /** Per-puppy FAQ, built only from this listing's data and the site's published policies. */
+/* ---------- Long description formatting ----------
+ * The admin "Long description" stays plain text. Blocks are separated by a
+ * blank line. Optional lightweight markers add structure for SEO:
+ *   ### Heading      -> <h3>   (## is treated as <h3> too; the page owns its <h2>s)
+ *   #### Subheading  -> <h4>
+ *   - item / * item  -> bulleted list
+ *   1. item          -> numbered list
+ *   **bold**         -> <strong>
+ *   [text](https://example.com) -> external link
+ * Text without markers renders exactly as before: one <p> per block.
+ */
+function renderInline(text: string, keyPrefix: string): React.ReactNode[] {
+  const out: React.ReactNode[] = [];
+  const re = /\*\*([^*]+)\*\*|\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+  let last = 0;
+  let m: RegExpExecArray | null;
+  let n = 0;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) out.push(text.slice(last, m.index));
+    if (m[1] !== undefined) {
+      out.push(
+        <strong key={`${keyPrefix}-b${n++}`} className="font-bold text-forest-800">
+          {m[1]}
+        </strong>,
+      );
+    } else {
+      out.push(
+        <a
+          key={`${keyPrefix}-a${n++}`}
+          href={m[3]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-semibold text-forest-700 underline underline-offset-2 hover:text-ember"
+        >
+          {m[2]}
+        </a>,
+      );
+    }
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out;
+}
+
+function DescriptionBlock({ block }: { block: string }) {
+  const lines = block.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+  const nodes: React.ReactNode[] = [];
+  let para: string[] = [];
+  let list: { ordered: boolean; items: string[] } | null = null;
+
+  const flushPara = () => {
+    if (para.length) {
+      const k = `p${nodes.length}`;
+      nodes.push(<p key={k}>{renderInline(para.join(' '), k)}</p>);
+      para = [];
+    }
+  };
+  const flushList = () => {
+    if (list) {
+      const k = `l${nodes.length}`;
+      const items = list.items.map((it, i) => <li key={i}>{renderInline(it, `${k}-${i}`)}</li>);
+      nodes.push(
+        list.ordered ? (
+          <ol key={k} className="list-decimal space-y-2 pl-6">
+            {items}
+          </ol>
+        ) : (
+          <ul key={k} className="list-disc space-y-2 pl-6">
+            {items}
+          </ul>
+        ),
+      );
+      list = null;
+    }
+  };
+
+  for (const line of lines) {
+    const h = /^(#{2,4})\s+(.+)$/.exec(line);
+    const ul = /^[-*]\s+(.+)$/.exec(line);
+    const ol = /^\d+[.)]\s+(.+)$/.exec(line);
+    if (h) {
+      flushPara();
+      flushList();
+      const k = `h${nodes.length}`;
+      nodes.push(
+        h[1].length === 4 ? (
+          <h4 key={k} className="pt-2 text-xl font-bold text-forest-800">
+            {renderInline(h[2], k)}
+          </h4>
+        ) : (
+          <h3 key={k} className="pt-4 text-2xl font-extrabold text-forest-800">
+            {renderInline(h[2], k)}
+          </h3>
+        ),
+      );
+    } else if (ul || ol) {
+      flushPara();
+      const ordered = !!ol;
+      if (list && list.ordered !== ordered) flushList();
+      if (!list) list = { ordered, items: [] };
+      list.items.push((ul ?? ol)![1]);
+    } else {
+      flushList();
+      para.push(line);
+    }
+  }
+  flushPara();
+  flushList();
+  return <>{nodes}</>;
+}
+
 function faqsFor(dog: Dog): { q: string; a: string }[] {
   const care = careItems(dog);
   const faqs: { q: string; a: string }[] = [
@@ -252,7 +364,7 @@ export default async function DogPage({ params }: Props) {
             {longParas.length > 0 ? (
               <div className="mt-5 space-y-4 text-lg leading-relaxed text-ink/85">
                 {longParas.map((p, i) => (
-                  <p key={i}>{p}</p>
+                  <DescriptionBlock key={i} block={p} />
                 ))}
               </div>
             ) : (
